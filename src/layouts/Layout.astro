@@ -1,3 +1,7 @@
+---
+import Analytics from '@vercel/analytics/astro';
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,6 +12,7 @@
     <meta name="generator" content={Astro.generator} />
     <title>Astro Basics</title>
     <link rel="stylesheet" href="/src/styles/global.css" />
+    <Analytics />
   </head>
   <body>
     <slot />
