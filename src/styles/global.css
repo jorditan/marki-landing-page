@@ -1,0 +1,109 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+@theme {
+  /* ─── Brand Primary ─────────────────────────────────────── */
+  --color-primary: #a0361f;
+  --color-primary-200: #d49690;
+  --color-primary-300: #c46e62;
+  --color-primary-350: #bc5e50;
+  --color-primary-400: #b55040;
+  --color-primary-500: #92311e;
+  --color-primary-600: #7a2518;
+  --color-primary-700: #5e1d14;
+  --color-primary-800: #421510;
+  --color-primary-900: #2a0f08;
+
+  /* ─── Surface ────────────────────────────────────────────── */
+  --color-surface-white: #ffffff;
+  --color-surface-background: #fafafa;
+  --color-surface-main-bg: #faf4f7;
+  --color-surface-muted: #f6f2ee;
+  --color-surface-subtle: #faf8f6;
+  --color-surface-light: #f3f5f8;
+  --color-surface-input: #f7f2ee;
+  --color-surface-elevated: #f8fafc;
+  --color-surface-elevated-alt: #faf7f4;
+  --color-surface-primary-subtle: #fdf0ec;
+  --color-surface-primary-light: #fce9e3;
+  --color-surface-primary-wash: #f9e0d6;
+  --color-surface-primary-faded: #f8ded3;
+  --color-surface-primary-muted: #fcf2ee;
+  --color-surface-primary-ghost: #f7ddd4;
+  --color-surface-ai-badge: rgba(160, 54, 31, 0.12);
+
+  /* ─── Neutral UI ─────────────────────────────────────────── */
+  --color-ui-label: #3d2a26;
+  --color-ui-subtitle: #7c6a62;
+  --color-ui-placeholder: #c4a89c;
+  --color-ui-muted: #90786e;
+  --color-ui-dark: #46342c;
+  --color-ui-step-inactive: #a09088;
+
+  /* ─── Neutral (Slate) ────────────────────────────────────── */
+  --color-neutral-300: #cbd5e1;
+  --color-neutral-400: #94a3b8;
+  --color-neutral-500: #64748b;
+  --color-neutral-550: #515f74;
+  --color-neutral-600: #475569;
+  --color-neutral-700: #334155;
+  --color-neutral-900: #0b1c30;
+  --color-neutral-950: #0f172a;
+
+  /* ─── Border ─────────────────────────────────────────────── */
+  --color-border-input: #ddd0c8;
+  --color-border-subtle: #e2e8f0;
+  --color-border-default: #ede0da;
+  --color-border-light: #f2eae6;
+  --color-border-muted: #d4b8b0;
+  --color-border-success: #26874a;
+  --color-border-primary: #e8a898;
+  --color-border-primary-subtle: #f5d4cc;
+
+  /* ─── Semantic ───────────────────────────────────────────── */
+  --color-success-surface: #effff5;
+  --color-success: #26874a;
+  --color-warning-surface: #fff7d6;
+  --color-warning: #cb9c01;
+  --color-info-surface: #a7c7f6;
+  --color-success-alt: #26874a;
+  --color-success-dark: #1e6b3b;
+
+  /* ─── Social ─────────────────────────────────────────────── */
+  --color-instagram: #ca38a5;
+
+  /* ─── Utility ────────────────────────────────────────────── */
+  --color-black: #000000;
+  --color-overlay: rgba(255, 255, 255, 0.9);
+  --color-overlay-white: rgba(255, 255, 255, 0.8);
+
+  /* ─── Typography ─────────────────────────────────────────── */
+  --font-base: "Inter", sans-serif;
+  --text-sm: 12px;
+  --text-base: 16px
+    /* ─── Border Radius ──────────────────────────────────────── */
+    --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-pill: 20px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-base);
+    background-color: var(--color-surface-background);
+    color: var(--color-neutral-950);
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+body {
+  font-family: var(--font-base);
+}

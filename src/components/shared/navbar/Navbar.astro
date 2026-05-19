@@ -1,0 +1,27 @@
+---
+import Button from "../Button.astro";
+import NavLink from "./NavLink.astro";
+const navLinksLabels = [
+  "Cómo funciona",
+  "Precios",
+  "Quienes somos",
+  "Preguntas frecuentes",
+];
+---
+
+<header>
+  <nav
+    class="flex px-6 py-4 bg-[#FAF9F6] justify-between items-center border-b border-border-default"
+  >
+    <p class="text-2xl text-primary font-black tracking-tight">Marki</p>
+
+    <div class="flex gap-4">
+      {navLinksLabels.map((label) => <NavLink label={label} />)}
+    </div>
+
+    <div class="flex gap-4">
+      <Button variant="secondary" type="rounded"> Iniciar sesión </Button>
+      <Button variant="primary" type="rounded"> Agendar una demo </Button>
+    </div>
+  </nav>
+</header>

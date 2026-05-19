@@ -1,0 +1,138 @@
+---
+interface Props {
+  variant?: "primary" | "secondary" | "ghost" | "outline" | "link";
+  type?: "default" | "rounded";
+  size?: "default" | "small";
+  disabled?: boolean;
+  href?: string;
+  leftIcon?: boolean;
+  rightIcon?: boolean;
+  class?: string;
+}
+
+const {
+  variant = "primary",
+  type = "default",
+  size = "default",
+  disabled = false,
+  href,
+  leftIcon = false,
+  rightIcon = false,
+  class: className = "",
+} = Astro.props;
+
+const baseStyles =
+  "inline-flex items-center justify-center font-bold transition-all duration-100 ease-out gap-2 cursor-pointer shadow-sm";
+
+const sizeStyles = {
+  default: "px-5 py-3 text-base",
+  small: "px-2 py-2 text-sm",
+};
+
+const typeStyles = {
+  default: "rounded-lg",
+  rounded: "rounded-full",
+};
+
+const variantStyles = {
+  primary:
+    "bg-primary text-white hover:bg-primary-400 active:bg-primary-500 hover:bg-brand-600",
+  secondary:
+    "bg-white hover:bg-muted border border-border-default text-primary hover:bg-surface-subtle active:bg-surface-muted",
+  ghost:
+    "bg-transparent text-ui-dark hover:bg-surface-subtle active:bg-surface-muted",
+  outline:
+    "bg-transparent border border-primary text-primary hover:bg-primary-subtle active:bg-surface-primary-light",
+  link: "bg-transparent border-none text-primary underline-offset-2 hover:underline px-0 py-0",
+};
+
+const disabledStyles = "opacity-50 cursor-not-allowed pointer-events-none";
+
+const classes = [
+  baseStyles,
+  sizeStyles[size],
+  typeStyles[type],
+  variantStyles[variant],
+  disabled && disabledStyles,
+  className,
+]
+  .filter(Boolean)
+  .join(" ");
+---
+
+{
+  href ? (
+    <a class={classes} href={href} aria-disabled={disabled}>
+      {leftIcon && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+      )}
+      <slot />
+      {rightIcon && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+      )}
+    </a>
+  ) : (
+    <button
+      class={classes}
+      disabled={disabled}
+      type="button"
+      aria-disabled={disabled}
+    >
+      {leftIcon && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="m15 18-6-6 6-6" />
+        </svg>
+      )}
+      <slot />
+      {rightIcon && (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="m9 18 6-6-6-6" />
+        </svg>
+      )}
+    </button>
+  )
+}
