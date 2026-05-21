@@ -1,0 +1,90 @@
+---
+import {
+  Calendar,
+  Lightbulb,
+  FileText,
+  Target,
+  Bell,
+  TrendingUp,
+} from "@lucide/astro";
+import Subheading from "../../shared/Subheading.astro";
+import TileCard from "./TileCard.astro";
+import IntegrationsCard from "./IntegrationsCard.astro";
+
+const tiles = [
+  {
+    title: "Calendario del mes",
+    description:
+      "Tu plan de contenido completo, ordenado por semana. Fácil de entender",
+    icon: "calendar",
+  },
+  {
+    title: "Sugerencias de Marki",
+    description:
+      "Recomendaciones cortas y accionables basadas en cómo te fué la semana pasada",
+    icon: "lightbulb",
+  },
+  {
+    title: "Descripciones listas",
+    description:
+      "Escribimos los textos de tus publicaciones en tu tono. Listo para copiar y pegars",
+    icon: "fileText",
+  },
+  {
+    title: "Objetivos claros",
+    description:
+      "Cada publicación tiene un para qué: ventas, alcance, comunidad. Sin contenido al voleo",
+    icon: "target",
+  },
+  {
+    title: "Recordatorios constantes",
+    description:
+      "Te avisamos el día y la hora exacta. Imposible olvidarte una publicación",
+    icon: "bell",
+  },
+  {
+    title: "Estrategia semanal",
+    description:
+      "Marki te explica qué movió la aguja y qué probar la semana que viene",
+    icon: "trendingUp",
+  },
+];
+
+const iconMap: Record<string, AstroComponent> = {
+  calendar: Calendar,
+  lightbulb: Lightbulb,
+  fileText: FileText,
+  target: Target,
+  bell: Bell,
+  trendingUp: TrendingUp,
+};
+---
+
+<section class="flex flex-col gap-8">
+  <Subheading text="Lo que hace por vos" />
+  <h2
+    class="font-bold text-primary-800 tracking-tighter lg:text-5xl text-xl self-stretch text-center justify-center"
+  >
+    Todo lo que necesitas para <br />
+    <span class="text-primary-600">no estancarte</span>.
+  </h2>
+
+  <article class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {
+      tiles.map((tile) => {
+        const Icon = iconMap[tile.icon];
+        return (
+          <TileCard title={tile.title} description={tile.description}>
+            {Icon && (
+              <Fragment slot="icon">
+                <Icon class="text-primary-800" />
+              </Fragment>
+            )}
+          </TileCard>
+        );
+      })
+    }
+  </article>
+
+  <IntegrationsCard />
+</section>

@@ -1,0 +1,25 @@
+---
+const { title, description, number } = Astro.props;
+---
+
+<div
+  class="lg:p-6 p-4 lg:gap-4 gap-2 flex flex-col items-start rounded-xl shadow-md border border-border-default"
+>
+  <div class="flex flex-col gap-4">
+    <div class="flex gap-4 items-center">
+      <div
+        class="p-1.5 rounded-3xl bg-surface-primary-light border border-border-default"
+      >
+        <slot class="text-primary-800" name="icon" />
+      </div>
+      <h3
+        class="font-bold text-primary-800 tracking-tighter lg:text-2xl text-xl text-left"
+      >
+        {title}
+      </h3>
+    </div>
+    <p class="text-primary-600">
+      {description}
+    </p>
+  </div>
+</div>
