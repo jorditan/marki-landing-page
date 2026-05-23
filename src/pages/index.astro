@@ -6,17 +6,17 @@ import BenefitsView from "../components/views/BenefitsView/Benefit.astro";
 import StepsView from "../components/views/Steps/StepsView.astro";
 import AllYouNeedView from "../components/views/AllYouNeed/AllYouNeedView.astro";
 import TablePlans from "../components/views/Plans/TablePlans.astro";
+import FaqsView from "../components/views/Faqs/FaqsView.astro";
 ---
 
-<Layout>
+<Layout title="Marki - Tu aliado en redes sociales">
   <Navbar />
-  <main
-    class="flex flex-col gap-8 xl:py-18 xl:px-41 lg:py-10 lg:px-30 px-4 py-2 sm:px-8 sm:py-4 md:px-20 md:py-8"
-  >
+  <main class="flex flex-col w-full overflow-x-hidden">
     <Hero />
     <BenefitsView />
     <StepsView />
     <AllYouNeedView />
     <TablePlans />
+    <FaqsView />
   </main>
 </Layout>

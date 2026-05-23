@@ -3,31 +3,33 @@ import Subheading from "../../../shared/Subheading.astro";
 import GenerationCard from "./GenerationCard.astro";
 ---
 
-<Subheading text="¿QUÉ SON LAS GENERACIONES Y LAS PLANIFICACIONES?" />
-
-<article class="flex gap-8">
-  <GenerationCard
-    title="Generación rápida"
-    description="Le decís a Marki qué quéres publicar y te genera 3 variantes de descripciones listas para que elijas.
-
-  Editás, regenerás hasta que te cierre, o lo guardás directo para usarlo después."
-  >
-    <div class="flex gap-4">
-      <img src="/Variant1.svg" class="w-full" alt="" />
-      <img src="/Variant2.svg" class="w-full" alt="" />
-    </div>
-  </GenerationCard>
-  <GenerationCard
-    title="Planificación de contenido"
-    description="Marki te arma un calendario en base a tus objetivos, tu audiencia
-  y los productos que querés destacar.
-
-  Te enseña de marketing: cada acción viene con un consejo de crecimiento para que entiendas el porqué."
-  >
-    <div class="flex gap-4">
-      <img src="/Lunes.svg" class="w-full" alt="" />
-      <img src="/Martes.svg" class="w-full" alt="" />
-      <img src="/Miercoles.svg" class="w-full" alt="" />
-    </div>
-  </GenerationCard>
+<article class="flex flex-col gap-6">
+  <div class="w-full flex justify-center">
+    <Subheading text="¿QUÉ SON LAS GENERACIONES Y LAS PLANIFICACIONES?" />
+  </div>
+  <div class="flex gap-8">
+    <GenerationCard
+      title="Generación rápida"
+      description={`Le decís a Marki qué quéres publicar y te genera <strong class="font-bold text-primary-800">3 variantes de descripciones</strong> listas para que elijas.
+ 
+Editás, regenerás hasta que te cierre, o lo guardás <strong class="font-bold text-primary-800">directo para usarlo después</strong>.`}
+    >
+      <div class="flex gap-4">
+        <img src="/Variant1.svg" class="w-full" alt="" />
+        <img src="/Variant2.svg" class="w-full" alt="" />
+      </div>
+    </GenerationCard>
+    <GenerationCard
+      title="Planificación de contenido"
+      description={`Marki te arma un <strong class="font-bold text-primary-800">calendario en base a tus objetivos, tu audiencia y los productos que querés destacar</strong>.
+ 
+<strong class="font-bold text-primary-800">Te enseña de marketing</strong>: cada acción viene con un consejo de crecimiento para que entiendas el porqué.`}
+    >
+      <div class="flex gap-4">
+        <img src="/Lunes.svg" class="w-full" alt="" />
+        <img src="/Martes.svg" class="w-full" alt="" />
+        <img src="/Miercoles.svg" class="w-full" alt="" />
+      </div>
+    </GenerationCard>
+  </div>
 </article>

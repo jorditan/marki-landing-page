@@ -2,50 +2,69 @@
 import Button from "../../shared/Button.astro";
 import Badge from "../../shared/Badge.astro";
 import { Sparkle } from "@lucide/astro";
+import Container from "../../shared/Container.astro";
 ---
 
-<section class="flex flex-start gap-6 items-stretch">
-  <div
-    class="self-stretch flex flex-col w-full justify-start items-start gap-7"
-  >
-    <Badge class="animate animate-pulse">
-      <Sparkle class="h-4 w-4" />
-      <span class="text-base font-medium text-primary"
-        >Marki, tu amigo que sabe de marketing</span
-      >
-    </Badge>
+<section class="w-full py-20 lg:py-32 h-screen bg-linear-to-b/decreasing from-surface-primary-light to-surface-background overflow-hidden">
+  <Container class="flex flex-start gap-6 items-center relative z-10">
+    <div
+      class="self-stretch flex flex-col w-full justify-start items-start gap-7 scroll-reveal"
+    >
+      <Badge variant="default" class="bg-surface-primary-light animate-pulse">
+        <Sparkle class="h-4 w-4" />
+        <span class="text-base font-medium"
+          >Marki, tu amigo que sabe de marketing</span
+        >
+      </Badge>
 
-    <h1
-      class="xl:text-8xl md:text-6xl sm:text-5xl text-2xl font-bold text-primary-800"
-    >
-      Dejá de pensar <br /> que postear y <br />
-      <span class="text-primary"
-        >empezá a <span class="underline decoration-wavy">crecer</span></span
+      <h1
+        class="xl:text-8xl md:text-6xl sm:text-5xl text-4xl font-bold text-primary-800 tracking-[-3px] leading-[1.05]"
       >
-    </h1>
-    <p
-      class="justify-center text-primary-700 lg:text-2xl md:text-xl text-base w-[80%] font-medium leading-7 lg:leading-9"
-    >
-      Marki te arma el calendario del mes: qué subir, cuando y por qué. Vos solo
-      aprobás y publicás. Sin marketing-speak, sin perder horas frente a la
-      pantalla
-    </p>
-    <div>
-      <Button type="rounded" variant="primary"> Agendar una demo </Button>
-      <Button type="rounded" variant="secondary"> Ver como funciona </Button>
+        Dejá de pensar <br /> qué postear y <br />
+        <span class="text-primary"
+          >empezá a <span class="underline decoration-wavy">crecer</span></span
+        >
+      </h1>
+      <p
+        class="justify-center text-primary-700 lg:text-2xl md:text-xl text-lg w-full lg:w-[85%] font-medium leading-relaxed tracking-tight"
+      >
+        Marki te arma el calendario del mes: qué subir, cuando y por qué. Vos solo
+        aprobás y publicás. Sin marketing-speak, sin perder horas frente a la
+        pantalla.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <Button
+          type="rounded"
+          variant="primary"
+          class="shadow-lg hover:scale-105 transition-transform"
+        >
+          Agendar una demo
+        </Button>
+        <Button
+          type="rounded"
+          variant="secondary"
+          class="shadow-sm hover:scale-105 transition-transform"
+        >
+          Ver como funciona
+        </Button>
+      </div>
     </div>
-  </div>
 
-  <div class="w-3/4 flex lg:flex-col flex-row gap-[-20px]">
-    <img
-      src="/ilustration-hero.svg"
-      class="w-fit h-fit relative rounded-xl border border-border-default shadow-md"
-      alt="Generación de contenido de Marki"
-    />
-    <img
-      src="/marki-suggest.svg"
-      class="w-fit h-fit rounded-xl relative"
-      alt="Generación de contenido de Marki"
-    />
-  </div>
+    <div
+      class="hidden lg:flex w-3/4 flex-col scroll-reveal delay-300 relative"
+    >
+      <img
+        src="/ilustration-hero.svg"
+        class="w-[85%] self-start h-auto animate-float transition-transform hover:scale-[1.02] hover:animate-none duration-500"
+        alt="Generación de contenido de Marki"
+      />
+      <img
+        src="/marki-suggest.svg"
+        class="w-[55%] self-end mt-[-22%] mr-[5%] z-10 h-auto animate-float-delayed transition-transform hover:-translate-y-2 hover:scale-[1.03] hover:animate-none duration-500"
+        alt="Generación de contenido de Marki"
+      />
+    </div>
+  </Container>
 </section>
+
+

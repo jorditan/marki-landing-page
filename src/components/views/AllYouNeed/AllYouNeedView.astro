@@ -10,6 +10,7 @@ import {
 import Subheading from "../../shared/Subheading.astro";
 import TileCard from "./TileCard.astro";
 import IntegrationsCard from "./IntegrationsCard.astro";
+import Container from "../../shared/Container.astro";
 
 const tiles = [
   {
@@ -50,7 +51,7 @@ const tiles = [
   },
 ];
 
-const iconMap: Record<string, AstroComponent> = {
+const iconMap: Record<string, any> = {
   calendar: Calendar,
   lightbulb: Lightbulb,
   fileText: FileText,
@@ -60,31 +61,49 @@ const iconMap: Record<string, AstroComponent> = {
 };
 ---
 
-<section class="flex flex-col gap-8">
-  <Subheading text="Lo que hace por vos" />
-  <h2
-    class="font-bold text-primary-800 tracking-tighter lg:text-5xl text-xl self-stretch text-center justify-center"
-  >
-    Todo lo que necesitas para <br />
-    <span class="text-primary-600">no estancarte</span>.
-  </h2>
+<section class="w-full py-20 lg:py-32 bg-surface-muted relative overflow-hidden z-0">
+  <div class="absolute -left-20 top-[10%] w-auto lg:auto h-auto pointer-events-none opacity-30 dark:opacity-15 blur-[0.5px] rotate-6 select-none z-[-1] transition-all duration-300 dark:invert dark:hue-rotate-180">
+    <img src="/quickAction.svg" class="w-full h-auto object-contain" alt="" />
+  </div>
+  <div class="absolute right-24 bottom-[5%] w-auto lg:auto h-auto pointer-events-none opacity-30 dark:opacity-15 blur-[0.5px] -rotate-6 select-none z-[-1] transition-all duration-300 dark:invert dark:hue-rotate-180">
+    <img src="/IAPLan.svg" class="w-full h-auto object-contain" alt="" />
+  </div>
 
-  <article class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    {
-      tiles.map((tile) => {
-        const Icon = iconMap[tile.icon];
-        return (
-          <TileCard title={tile.title} description={tile.description}>
-            {Icon && (
-              <Fragment slot="icon">
-                <Icon class="text-primary-800" />
-              </Fragment>
-            )}
-          </TileCard>
-        );
-      })
-    }
-  </article>
+  <Container class="flex flex-col gap-12 scroll-reveal">
+    <div class="flex justify-center w-full">
+      <Subheading text="Lo que hace por vos" />
+    </div>
+    <h2
+      class="font-bold text-primary-800 tracking-[-2px] lg:text-5xl text-3xl self-stretch text-center leading-[1.1]"
+    >
+      Todo lo que necesitas para <br />
+      <span class="text-primary-600">no estancarte</span>.
+    </h2>
 
-  <IntegrationsCard />
+    <article class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        tiles.map((tile, index) => {
+          const Icon = iconMap[tile.icon];
+          return (
+            <div
+              class="scroll-reveal"
+              style={`transition-delay: ${index * 100}ms`}
+            >
+              <TileCard title={tile.title} description={tile.description}>
+                {Icon && (
+                  <Fragment slot="icon">
+                    <Icon class="text-primary-800 h-6 w-6" />
+                  </Fragment>
+                )}
+              </TileCard>
+            </div>
+          );
+        })
+      }
+    </article>
+
+    <div class="scroll-reveal delay-400">
+      <IntegrationsCard />
+    </div>
+  </Container>
 </section>

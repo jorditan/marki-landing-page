@@ -3,10 +3,17 @@ const { title, description, number } = Astro.props;
 ---
 
 <div
-  class="lg:p-8 md:p-6 p-4 flex flex-col gap-2 justify-start rounded-4xl border-2 border-border-default bg-surface-background items-start"
+  class="lg:p-8 md:p-6 p-4 flex flex-col gap-4 justify-start rounded-4xl border-2 border-border-default bg-surface-muted items-start shadow-sm"
 >
-  <h3 class="font-bold text-primary-800 tracking-tighter lg:text-xl text-lg">
-    {number}. {title}
-  </h3>
-  <p class="text-primary-800 font-medium text-left">{description}</p>
+  <div class="flex gap-4 items-center">
+    <div
+      class="p-1.5 rounded-3xl bg-surface-primary-light border border-border-primary"
+    >
+      <slot class="text-primary-800" name="icon" />
+    </div>
+    <h3 class="font-bold text-primary-700 tracking-tighter lg:text-2xl text-xl">
+      {number}. {title}
+    </h3>
+  </div>
+  <p class="text-primary-600 font-medium text-left" set:html={description}></p>
 </div>

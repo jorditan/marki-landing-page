@@ -2,27 +2,45 @@
 import Moon from "@lucide/astro/icons/moon";
 import Button from "../Button.astro";
 import NavLink from "./NavLink.astro";
+import ThemeSelector from "./ThemeSelector.astro";
+import Container from "../Container.astro";
+
 const navLinksLabels = [
-  "Cómo funciona",
-  "Precios",
-  "Quienes somos",
-  "Preguntas frecuentes",
+  {
+      label: "Cómo funciona",
+      redirect: "#como-funciona"
+  },
+  {
+      label: "Precios",
+      redirect: "#precios"
+  },
+  {
+      label: "Quienes somos",
+      redirect: "#quienes-somos"
+  },
+  {
+      label: "Preguntas frecuentes",
+      redirect: "#preguntas-frecuentes"
+  },
+
 ];
 ---
 
-<header>
+<header class="fixed z-20 w-full top-0 left-0">
   <nav
-    class="flex px-6 py-4 bg-[#FAF9F6] justify-between items-center border-b border-border-default"
+    class="bg-surface-elevated/70 backdrop-blur-md border-b border-border-default"
   >
-    <p class="text-2xl text-primary font-black tracking-tight">Marki</p>
+    <Container class="flex py-4 justify-between items-center">
+      <a href="#" class="text-2xl text-primary font-black tracking-tight">Marki</a>
 
-    <div class="flex gap-4">
-      {navLinksLabels.map((label) => <NavLink label={label} />)}
-    </div>
+      <div class="flex gap-4">
+        {navLinksLabels.map((link) => <NavLink label={link.label} redirect={link.redirect} />)}
+      </div>
 
-    <div class="flex gap-4">
-      <Button variant="secondary" type="rounded"><Moon /></Button>
-      <Button variant="primary" type="rounded"> Agendar una demo </Button>
-    </div>
+      <div class="flex gap-4">
+        <ThemeSelector />
+        <Button variant="primary" type="rounded"> Agendar una demo </Button>
+      </div>
+    </Container>
   </nav>
 </header>

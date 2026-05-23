@@ -3,9 +3,9 @@ const { title, description } = Astro.props;
 ---
 
 <div
-  class="rounded-xl border-2 w-full border-border-default lg:p-8 md:p-6 p-4 shadow-lg flex flex-col gap-2"
+  class="rounded-xl border-2 w-full border-border-default lg:p-8 md:p-6 p-4 shadow-xl flex flex-col gap-4 bg-surface-muted"
 >
   <h3 class="text-2xl text-primary-700 font-bold">{title}</h3>
-  <p class="text-primary-700">{description}</p>
+  <p class="text-primary-600 font-medium whitespace-pre-line" set:html={description}></p>
   <slot />
 </div>

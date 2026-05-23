@@ -1,0 +1,44 @@
+---
+import { Plus } from "@lucide/astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<details
+  class="group w-full bg-surface-muted border border-border-default rounded-[32px] overflow-hidden transition-all duration-300 open:bg-surface-primary-subtle open:border-border-primary"
+>
+  <summary
+    class="flex justify-between items-center px-6 py-4 lg:px-8 lg:py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden"
+  >
+    <h3 class="font-bold text-primary-700 text-sm md:text-base pr-4">
+      {title}
+    </h3>
+    <div
+      class="shrink-0 text-primary-700 transition-transform duration-300 group-open:rotate-45"
+    >
+      <Plus class="h-6 w-6" />
+    </div>
+  </summary>
+  <div class="px-6 flex flex-col gap-4 pb-6 lg:px-8 lg:pb-6 pt-0">
+    <hr class="text-border-primary" />
+    <p
+      class="text-primary-800 font-medium text-sm md:text-base leading-relaxed"
+    >
+      {description}
+    </p>
+  </div>
+</details>
+
+<style>
+  summary {
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

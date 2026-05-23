@@ -10,12 +10,38 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>Marki, tu amigo CM</title>
     <Analytics />
   </head>
-  <body>
+  <body class="min-h-screen">
     <slot />
+    <script>
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      }, observerOptions);
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const revealElements = document.querySelectorAll(".scroll-reveal");
+        revealElements.forEach((el) => observer.observe(el));
+      });
+    </script>
   </body>
 </html>
 
