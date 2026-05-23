@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@astrojs/vercel": "^10.0.7",
+    "@hotjar/browser": "^1.0.9",
     "@lucide/astro": "^1.16.0",
     "@tailwindcss/vite": "^4.3.0",
     "@vercel/analytics": "^2.0.1",

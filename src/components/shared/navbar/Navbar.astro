@@ -1,5 +1,4 @@
 ---
-import Moon from "@lucide/astro/icons/moon";
 import Button from "../Button.astro";
 import NavLink from "./NavLink.astro";
 import ThemeSelector from "./ThemeSelector.astro";
@@ -22,25 +21,178 @@ const navLinksLabels = [
       label: "Preguntas frecuentes",
       redirect: "#preguntas-frecuentes"
   },
-
 ];
 ---
 
-<header class="fixed z-20 w-full top-0 left-0">
-  <nav
-    class="bg-surface-elevated/70 backdrop-blur-md border-b border-border-default"
-  >
-    <Container class="flex py-4 justify-between items-center">
-      <a href="#" class="text-2xl text-primary font-black tracking-tight">Marki</a>
-
-      <div class="flex gap-4">
+<header class="fixed z-40 w-full top-0 left-0">
+  <!-- ── DESKTOP NAVBAR (hidden md:flex) ── -->
+  <div class="hidden md:flex justify-center w-full px-4 py-5">
+    <nav class="bg-surface-elevated/75 backdrop-blur-md border border-border-default/80 rounded-full px-6 py-2.5 shadow-lg flex items-center gap-8 w-fit transition-all duration-300 hover:border-border-muted/80">
+      <a href="#" class="text-2xl text-primary font-black tracking-tight transition-transform hover:scale-105 active:scale-95">Marki</a>
+      
+      <div class="flex gap-2">
         {navLinksLabels.map((link) => <NavLink label={link.label} redirect={link.redirect} />)}
       </div>
 
-      <div class="flex gap-4">
+      <div class="flex gap-3 items-center">
         <ThemeSelector />
         <Button variant="primary" type="rounded"> Agendar una demo </Button>
       </div>
-    </Container>
-  </nav>
+    </nav>
+  </div>
+
+  <!-- ── MOBILE NAVBAR HEADER (md:hidden) ── -->
+  <div class="flex md:hidden items-center justify-between gap-3 px-4 pt-4">
+    <!-- Hamburguesa menu toggle button -->
+    <button
+      id="menu-toggle"
+      aria-label="Abrir menú de navegación"
+      aria-expanded="false"
+      aria-controls="mobile-nav-menu"
+      class="flex items-center justify-center h-12 w-12 rounded-2xl border border-border-default bg-surface-elevated/85 backdrop-blur-md shadow-sm text-ui-dark active:scale-90 active:opacity-80 transition-all duration-200 cursor-pointer"
+    >
+      <!-- Burger icon -->
+      <svg id="icon-burger" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="4" y1="12" x2="20" y2="12"></line>
+        <line x1="4" y1="6" x2="20" y2="6"></line>
+        <line x1="4" y1="18" x2="20" y2="18"></line>
+      </svg>
+      <!-- X icon (oculto por defecto) -->
+      <svg id="icon-x" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Floating Logo card -->
+    <a
+      href="#"
+      class="flex items-center justify-center h-12 px-6 rounded-2xl border border-border-default bg-surface-elevated/85 backdrop-blur-md shadow-sm font-black text-xl text-primary tracking-tight active:scale-95 transition-all duration-200 cursor-pointer"
+    >
+      Marki
+    </a>
+
+    <!-- Theme widget card -->
+    <div class="flex items-center justify-center h-12 w-12 rounded-2xl border border-border-default bg-surface-elevated/85 backdrop-blur-md shadow-sm">
+      <ThemeSelector />
+    </div>
+  </div>
+
+  <!-- ── MOBILE PANEL: dropdown floating card ── -->
+  <div
+    id="mobile-nav-menu"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Menú de navegación"
+    class="md:hidden fixed top-[4.75rem] left-4 right-4 z-40 rounded-3xl overflow-hidden border border-border-default/80 bg-surface-elevated/95 backdrop-blur-2xl shadow-xl transition-all duration-300 ease-out origin-top-left opacity-0 -translate-y-2 scale-[0.97] pointer-events-none"
+  >
+    <nav class="p-3">
+      <ul class="flex flex-col gap-1">
+        {navLinksLabels.map((link) => (
+          <li>
+            <a
+              href={link.redirect}
+              class="flex w-full items-center px-4 py-3.5 text-base font-bold text-ui-dark rounded-2xl hover:bg-surface-subtle active:bg-surface-muted transition-colors duration-200"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div class="h-[1px] bg-border-default/60 my-2"></div>
+      <div class="p-1">
+        <Button variant="primary" type="rounded" class="w-full justify-center py-3.5 shadow-md">
+          Agendar una demo
+        </Button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ── MOBILE: backdrop ── -->
+  <div
+    id="menu-backdrop"
+    class="md:hidden fixed inset-0 z-30 bg-black/20 dark:bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300"
+  ></div>
 </header>
+
+<script>
+  function initNavbar() {
+    const toggleBtn = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-nav-menu");
+    const backdrop = document.getElementById("menu-backdrop");
+    const burgerIcon = document.getElementById("icon-burger");
+    const closeIcon = document.getElementById("icon-x");
+
+    if (!toggleBtn || !mobileMenu || !backdrop) return;
+
+    let isOpen = false;
+
+    function openMenu() {
+      isOpen = true;
+      toggleBtn?.setAttribute("aria-expanded", "true");
+      
+      // Menu panel animation class toggling
+      mobileMenu?.classList.remove("opacity-0", "-translate-y-2", "scale-[0.97]", "pointer-events-none");
+      mobileMenu?.classList.add("opacity-100", "translate-y-0", "scale-100", "pointer-events-auto");
+      
+      // Backdrop animation class toggling
+      backdrop?.classList.remove("opacity-0", "pointer-events-none");
+      backdrop?.classList.add("opacity-100", "pointer-events-auto");
+      
+      // Toggle burger/close icons
+      burgerIcon?.classList.add("hidden");
+      closeIcon?.classList.remove("hidden");
+    }
+
+    function closeMenu() {
+      isOpen = false;
+      toggleBtn?.setAttribute("aria-expanded", "false");
+      
+      // Menu panel animation class toggling
+      mobileMenu?.classList.add("opacity-0", "-translate-y-2", "scale-[0.97]", "pointer-events-none");
+      mobileMenu?.classList.remove("opacity-100", "translate-y-0", "scale-100", "pointer-events-auto");
+      
+      // Backdrop animation class toggling
+      backdrop?.classList.add("opacity-0", "pointer-events-none");
+      backdrop?.classList.remove("opacity-100", "pointer-events-auto");
+      
+      // Toggle burger/close icons
+      burgerIcon?.classList.remove("hidden");
+      closeIcon?.classList.add("hidden");
+    }
+
+    function toggleMenu() {
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    // Bind event listeners
+    toggleBtn.addEventListener("click", toggleMenu);
+    backdrop.addEventListener("click", closeMenu);
+
+    // Auto-close menu when clicking links
+    const links = mobileMenu.querySelectorAll("a");
+    links.forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    // Close on Escape key press
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && isOpen) {
+        closeMenu();
+      }
+    };
+    document.addEventListener("keydown", handleEscape);
+  }
+
+  // Bind init function on initial DOM load and page load (for View Transitions compatibility)
+  document.addEventListener("astro:page-load", initNavbar);
+  if (document.readyState !== "loading") {
+    initNavbar();
+  } else {
+    document.addEventListener("DOMContentLoaded", initNavbar);
+  }
+</script>

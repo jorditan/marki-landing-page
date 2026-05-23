@@ -1,0 +1,135 @@
+---
+import Container from "./Container.astro";
+
+const currentYear = new Date().getFullYear();
+
+const productLinks = [
+  { label: "Cómo funciona", href: "#como-funciona" },
+  { label: "Precios", href: "#precios" },
+  { label: "Quiénes somos", href: "#quienes-somos" },
+  { label: "Preguntas frecuentes", href: "#preguntas-frecuentes" },
+];
+
+const supportLinks = [
+  { label: "Agendar una demo", href: "#" },
+  { label: "Contacto por WhatsApp", href: "#" },
+  { label: "Centro de ayuda", href: "#" },
+];
+
+const legalLinks = [
+  { label: "Política de Privacidad", href: "#" },
+  { label: "Términos de Servicio", href: "#" },
+  { label: "Aviso Legal", href: "#" },
+];
+---
+
+<footer class="w-full border-t border-border-default/80 bg-surface-elevated-alt/50 backdrop-blur-md py-16 lg:py-24 relative overflow-hidden z-0">
+  <!-- Subtle glowing background blob -->
+  <div class="absolute bottom-0 left-1/4 -translate-x-1/2 w-[350px] h-[350px] bg-primary/5 dark:bg-primary/10 rounded-full blur-[100px] pointer-events-none z-[-1]"></div>
+
+  <Container class="flex flex-col gap-12 lg:gap-16">
+    <!-- Top section: Columns Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+      
+      <!-- Brand column (Spans 2 columns on lg) -->
+      <div class="flex flex-col gap-4 lg:col-span-2">
+        <a href="#" class="text-3xl text-primary font-black tracking-tight w-fit transition-transform hover:scale-105">
+          Marki
+        </a>
+        <p class="text-ui-muted text-base font-semibold leading-relaxed max-w-sm">
+          Tu aliado inteligente en redes sociales. Dejá de adivinar qué publicar y empezá a crecer con estrategia.
+        </p>
+        
+        <!-- Social links -->
+        <div class="flex items-center gap-3 mt-2">
+          <!-- Twitter/X -->
+          <a href="#" aria-label="Twitter" class="flex items-center justify-center w-10 h-10 rounded-xl border border-border-default bg-surface-white dark:bg-transparent text-ui-muted hover:text-primary hover:border-primary transition-all duration-300 shadow-xs">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#" aria-label="Instagram" class="flex items-center justify-center w-10 h-10 rounded-xl border border-border-default bg-surface-white dark:bg-transparent text-ui-muted hover:text-primary hover:border-primary transition-all duration-300 shadow-xs">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="#" aria-label="LinkedIn" class="flex items-center justify-center w-10 h-10 rounded-xl border border-border-default bg-surface-white dark:bg-transparent text-ui-muted hover:text-primary hover:border-primary transition-all duration-300 shadow-xs">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Links Column: Product -->
+      <div class="flex flex-col gap-5">
+        <span class="text-ui-dark text-sm font-bold tracking-wider uppercase">Producto</span>
+        <ul class="flex flex-col gap-3">
+          {productLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-ui-muted hover:text-primary font-semibold text-base transition-colors duration-200">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Links Column: Support -->
+      <div class="flex flex-col gap-5">
+        <span class="text-ui-dark text-sm font-bold tracking-wider uppercase">Soporte</span>
+        <ul class="flex flex-col gap-3">
+          {supportLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-ui-muted hover:text-primary font-semibold text-base transition-colors duration-200">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Links Column: Legal -->
+      <div class="flex flex-col gap-5">
+        <span class="text-ui-dark text-sm font-bold tracking-wider uppercase">Legal</span>
+        <ul class="flex flex-col gap-3">
+          {legalLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-ui-muted hover:text-primary font-semibold text-base transition-colors duration-200">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Divider -->
+    <div class="h-[1px] w-full bg-border-default/60"></div>
+
+    <!-- Bottom section: Copyright, status and signature -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-6 w-full">
+      <!-- Copyright -->
+      <span class="text-ui-muted text-sm font-bold order-3 sm:order-1">
+        © {currentYear} Marki. Todos los derechos reservados.
+      </span>
+
+      <!-- Status dot (Capacities style) -->
+      <div class="flex items-center gap-2.5 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 dark:border-emerald-500/30 px-4 py-1.5 rounded-full text-xs font-bold shadow-xs order-1 sm:order-2">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span>Sistemas operativos</span>
+      </div>
+
+
+    </div>
+
+  </Container>
+</footer>

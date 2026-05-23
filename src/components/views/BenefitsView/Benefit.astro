@@ -34,7 +34,7 @@ const benefits = [
         class="font-bold text-primary-800 tracking-[-2px] lg:text-5xl text-3xl self-stretch text-center leading-[1.1]"
       >
         De mirar tu perfil sin saber <br /> qué hacer, <span
-          class="text-primary-600">a tener un plan claro</span
+          class="text-primary-600 underline decoration-4 decoration-wavy">a tener un plan claro</span
         >.
       </h2>
     </div>
@@ -59,8 +59,8 @@ const benefits = [
           <ul class="flex flex-col gap-4">
             {
               negatives.map((negative) => (
-                <li class="text-primary-800/80 font-medium flex items-center gap-3">
-                    <X class="h-4 w-4 text-red-700" />
+                <li class="text-primary-600 font-medium flex items-center gap-3">
+                    <X class="h-4 w-4 text-red-800" />
                   <span>{negative}</span>
                 </li>
               ))
@@ -78,7 +78,7 @@ const benefits = [
           <ul class="flex flex-col gap-4">
             {
               benefits.map((benefit) => (
-                <li class="text-primary-800 font-medium flex items-center gap-3">
+                <li class="text-primary-600 font-medium flex items-center gap-3">
                     <CheckCheckIcon class="h-4 w-4 text-green-700" />
                   <span>{benefit}</span>
                 </li>
