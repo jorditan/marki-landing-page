@@ -1,22 +1,37 @@
 ---
 import Subheading from "../../../shared/Subheading.astro";
 import GenerationCard from "./GenerationCard.astro";
+import variant1Raw from "../../../../../public/Variant1.svg?raw";
+import variant2Raw from "../../../../../public/Variant2.svg?raw";
+import lunesRaw from "../../../../../public/Lunes.svg?raw";
+import martesRaw from "../../../../../public/Martes.svg?raw";
+import miercolesRaw from "../../../../../public/Miercoles.svg?raw";
 ---
 
 <article class="flex flex-col gap-6">
   <div class="w-full flex justify-center">
     <Subheading text="¿QUÉ SON LAS GENERACIONES Y LAS PLANIFICACIONES?" />
   </div>
-  <div class="flex gap-8">
+  <div class="flex lg:flex-row flex-col gap-8">
     <GenerationCard
       title="Generación rápida"
       description={`Le decís a Marki qué quéres publicar y te genera <strong class="font-bold text-primary-800">3 variantes de descripciones</strong> listas para que elijas.
  
 Editás, regenerás hasta que te cierre, o lo guardás <strong class="font-bold text-primary-800">directo para usarlo después</strong>.`}
     >
-      <div class="flex gap-4">
-        <img src="/Variant1.svg" class="w-full" alt="" />
-        <img src="/Variant2.svg" class="w-full" alt="" />
+      <div class="grid grid-cols-2 gap-3 w-full min-w-0">
+        <div
+          class="w-full h-auto object-contain scale-90 sm:scale-95 lg:scale-100 [&>svg]:w-full [&>svg]:h-auto"
+          role="img"
+          aria-label="Variante de generación rápida 1"
+          set:html={variant1Raw}
+        />
+        <div
+          class="w-full h-auto object-contain scale-90 sm:scale-95 lg:scale-100 [&>svg]:w-full [&>svg]:h-auto"
+          role="img"
+          aria-label="Variante de generación rápida 2"
+          set:html={variant2Raw}
+        />
       </div>
     </GenerationCard>
     <GenerationCard
@@ -25,10 +40,25 @@ Editás, regenerás hasta que te cierre, o lo guardás <strong class="font-bold 
  
 <strong class="font-bold text-primary-800">Te enseña de marketing</strong>: cada acción viene con un consejo de crecimiento para que entiendas el porqué.`}
     >
-      <div class="flex gap-4">
-        <img src="/Lunes.svg" class="w-full" alt="" />
-        <img src="/Martes.svg" class="w-full" alt="" />
-        <img src="/Miercoles.svg" class="w-full" alt="" />
+      <div class="grid grid-cols-3 gap-3 w-full min-w-0">
+        <div
+          class="w-full h-auto object-contain scale-90 sm:scale-95 lg:scale-100 [&>svg]:w-full [&>svg]:h-auto"
+          role="img"
+          aria-label="Planificación Lunes"
+          set:html={lunesRaw}
+        />
+        <div
+          class="w-full h-auto object-contain scale-90 sm:scale-95 lg:scale-100 [&>svg]:w-full [&>svg]:h-auto"
+          role="img"
+          aria-label="Planificación Martes"
+          set:html={martesRaw}
+        />
+        <div
+          class="w-full h-auto object-contain scale-90 sm:scale-95 lg:scale-100 [&>svg]:w-full [&>svg]:h-auto"
+          role="img"
+          aria-label="Planificación Miércoles"
+          set:html={miercolesRaw}
+        />
       </div>
     </GenerationCard>
   </div>

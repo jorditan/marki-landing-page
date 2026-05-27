@@ -3,12 +3,14 @@ import Button from "../../shared/Button.astro";
 import Badge from "../../shared/Badge.astro";
 import { Sparkle } from "@lucide/astro";
 import Container from "../../shared/Container.astro";
+import ilustrationHeroRaw from "../../../../public/ilustration-hero.svg?raw";
+import markiSuggestRaw from "../../../../public/marki-suggest.svg?raw";
 ---
 
-<section class="w-full py-20 lg:py-32 h-screen bg-linear-to-b/decreasing from-surface-primary-light to-surface-background overflow-hidden">
-  <Container class="flex flex-start gap-6 items-center relative z-10">
+<section class="w-full py-20 lg:py-32 md:min-h-screen md:flex md:flex-col md:justify-center bg-linear-to-b/decreasing from-surface-primary-light to-surface-background overflow-hidden">
+  <Container class="flex flex-col lg:flex-row gap-12 lg:gap-8 items-center justify-between relative z-10">
     <div
-      class="self-stretch flex flex-col w-full justify-start items-start gap-7 scroll-reveal"
+      class="self-stretch flex flex-col w-full lg:w-[55%] justify-start items-start gap-7 scroll-reveal"
     >
       <Badge variant="default" class="bg-surface-primary-light animate-pulse">
         <Sparkle class="h-4 w-4" />
@@ -18,7 +20,7 @@ import Container from "../../shared/Container.astro";
       </Badge>
 
       <h1
-        class="xl:text-8xl md:text-6xl sm:text-5xl text-4xl font-bold text-primary-800 tracking-[-3px] leading-[1.05]"
+        class="xl:text-8xl lg:text-6xl md:text-5xl sm:text-3xl text-4xl font-bold text-primary-800 tracking-[-3px] leading-[1.05]"
       >
         Dejá de pensar <br /> qué postear y <br />
         <span class="text-primary"
@@ -32,18 +34,18 @@ import Container from "../../shared/Container.astro";
         aprobás y publicás. Sin marketing-speak, sin perder horas frente a la
         pantalla.
       </p>
-      <div class="flex flex-wrap gap-4">
+      <div class="flex flex-wrap gap-4 w-full">
         <Button
           type="rounded"
           variant="primary"
-          class="shadow-lg hover:scale-105 transition-transform"
+          class="shadow-lg hover:scale-105 transition-transform w-full sm:w-fit"
         >
           Agendar una demo
         </Button>
         <Button
           type="rounded"
           variant="secondary"
-          class="shadow-sm hover:scale-105 transition-transform"
+          class="shadow-sm hover:scale-105 transition-transform w-full sm:w-fit"
         >
           Ver como funciona
         </Button>
@@ -51,20 +53,20 @@ import Container from "../../shared/Container.astro";
     </div>
 
     <div
-      class="hidden lg:flex w-3/4 flex-col scroll-reveal delay-300 relative"
+      class="flex w-full max-w-70 sm:max-w-sm lg:max-w-none lg:w-[40%] flex-col scroll-reveal delay-300 relative mt-8 lg:mt-0"
     >
-      <img
-        src="/ilustration-hero.svg"
-        class="w-[85%] self-start h-auto animate-float transition-transform hover:scale-[1.02] hover:animate-none duration-500"
-        alt="Generación de contenido de Marki"
+      <div
+        class="w-[85%] self-start h-auto animate-float transition-transform hover:scale-[1.02] hover:animate-none duration-500 [&>svg]:w-full [&>svg]:h-auto"
+        role="img"
+        aria-label="Generación de contenido de Marki"
+        set:html={ilustrationHeroRaw}
       />
-      <img
-        src="/marki-suggest.svg"
-        class="w-[55%] self-end mt-[-22%] mr-[5%] z-10 h-auto animate-float-delayed transition-transform hover:-translate-y-2 hover:scale-[1.03] hover:animate-none duration-500"
-        alt="Generación de contenido de Marki"
+      <div
+        class="w-[55%] self-end mt-[-22%] mr-[5%] z-10 h-auto animate-float-delayed transition-transform hover:-translate-y-2 hover:scale-[1.03] hover:animate-none duration-500 [&>svg]:w-full [&>svg]:h-auto"
+        role="img"
+        aria-label="Sugerencia de contenido de Marki"
+        set:html={markiSuggestRaw}
       />
     </div>
   </Container>
 </section>
-
-
