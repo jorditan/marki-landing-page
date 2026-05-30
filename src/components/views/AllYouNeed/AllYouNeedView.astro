@@ -38,7 +38,7 @@ const tiles = [
     icon: "target",
   },
   {
-    title: "Recordatorios constantes",
+    title: "Recordatorios puntuales",
     description:
       "Te avisamos el día y la hora exacta. Imposible olvidarte una publicación",
     icon: "bell",
@@ -80,7 +80,7 @@ const iconMap: Record<string, any> = {
       </h2>
     </div>
 
-    <article class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <article class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
       {
         tiles.map((tile, index) => {
           const Icon = iconMap[tile.icon];
