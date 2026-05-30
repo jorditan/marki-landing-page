@@ -42,9 +42,9 @@ const features = [
     title: "Generaciones rápidas",
     subtitle: "Publicaciones, reels, carruseles",
     values: {
-      inicial: "7 / mes",
-      intermedio: "15 / mes",
-      avanzado: "20 / mes",
+      inicial: "7 x mes",
+      intermedio: "15 x mes",
+      avanzado: "20 x mes",
     },
   },
   {
@@ -79,7 +79,7 @@ const features = [
   <Container class="flex flex-col gap-12">
     <!-- Header -->
     <div class="w-full flex justify-center gap-3 flex-col scroll-reveal">
-      <Subheading text={"Planes"} />
+      <Subheading text={"Precios"} />
       <h2
         class="font-bold text-primary-800 tracking-[-2px] lg:text-5xl text-4xl self-stretch text-center leading-[1.1]"
       >
@@ -291,7 +291,7 @@ const features = [
                               </span>
                             )
                           ) : (
-                            <span class="text-sm font-bold text-neutral-800">
+                            <span class="text-md font-bold text-ui-dark">
                               {val}
                             </span>
                           )}
