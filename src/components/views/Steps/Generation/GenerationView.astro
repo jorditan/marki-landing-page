@@ -10,26 +10,26 @@ import miercolesRaw from "../../../../../public/Miercoles.svg?raw";
 
 <article class="flex flex-col gap-6">
   <div class="w-full flex justify-center">
-    <Subheading text="¿QUÉ SON LAS GENERACIONES Y LAS PLANIFICACIONES?" />
+    <Subheading text="¿QUÉ ES GENERAR IDEAS Y PLANIFICAR?" />
   </div>
   <div class="flex lg:flex-row flex-col gap-8">
     <GenerationCard
-      title="Generación rápida"
-      description={`Le decís a Marki qué quéres publicar y te genera <strong class="font-bold text-primary-800">3 variantes de descripciones</strong> listas para que elijas.
+      title="Generar ideas"
+      description={`Le decís a Marki qué querés comunicar y te genera <strong class="font-bold text-primary-800">3 variantes de ideas creativas</strong> listas para tu publicación.
  
-Editás, regenerás hasta que te cierre, o lo guardás <strong class="font-bold text-primary-800">directo para usarlo después</strong>.`}
+Editás, regenerás las opciones que quieras y guardás tus <strong class="font-bold text-primary-800">favoritas para usar después</strong>.`}
     >
       <div class="grid grid-cols-2 gap-3 w-full min-w-0">
         <div
           class="w-full h-auto object-contain scale-90 sm:scale-95 lg:scale-100 [&>svg]:w-full [&>svg]:h-auto"
           role="img"
-          aria-label="Variante de generación rápida 1"
+          aria-label="Variante de idea rápida 1"
           set:html={variant1Raw}
         />
         <div
           class="w-full h-auto object-contain scale-90 sm:scale-95 lg:scale-100 [&>svg]:w-full [&>svg]:h-auto"
           role="img"
-          aria-label="Variante de generación rápida 2"
+          aria-label="Variante de idea rápida 2"
           set:html={variant2Raw}
         />
       </div>
