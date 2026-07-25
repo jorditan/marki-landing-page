@@ -70,17 +70,18 @@ const iconMap: Record<string, any> = {
     <Zap stroke="currentColor" fill="currentColor" />
   </div>
 
-  <div
-    class="absolute right-6 lg:right-24 top-[12%] hidden lg:block w-40 lg:w-52 pointer-events-none select-none z-10 animate-float transition-all duration-300"
-  >
-    <img
-      src="/marki-icons/marki-pc.svg"
-      alt="Marki trabajando en la computadora"
-      class="w-full h-auto drop-shadow-lg"
-    />
-  </div>
   <Container class="flex flex-col gap-12 scroll-reveal">
-    <div class="flex flex-col gap-8 items-center">
+    <div class="flex flex-col gap-8 items-center relative">
+      <div
+        class="hidden lg:block absolute right-0 lg:right-6 top-0 w-36 lg:w-48 pointer-events-none select-none z-10 animate-float transition-all duration-300"
+      >
+        <img
+          src="/marki-icons/marki-pc.svg"
+          alt="Marki trabajando en la computadora"
+          class="w-full h-auto drop-shadow-lg"
+        />
+      </div>
+
       <div class="flex flex-col gap-4 items-center">
         <div class="flex justify-center w-full">
           <Subheading text="Cómo funciona" />
