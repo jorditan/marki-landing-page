@@ -12,32 +12,27 @@ const productLinks = [
 
 const supportLinks = [
   { label: "Agendar una demo", href: "#" },
-  { label: "Contacto por WhatsApp", href: "#" },
-  { label: "Centro de ayuda", href: "#" },
+  { label: "Contacto", href: "marketingbts2026@gmail.com" },
 ];
 
-const legalLinks = [
-  { label: "Política de Privacidad", href: "#" },
-  { label: "Términos de Servicio", href: "#" },
-  { label: "Aviso Legal", href: "#" },
-];
 ---
 
 <footer class="w-full border-t border-border-default/80 bg-surface-elevated-alt/50 backdrop-blur-md py-16 lg:py-24 relative overflow-hidden z-0">
   <!-- Subtle glowing background blob -->
-  <div class="absolute bottom-0 left-1/4 -translate-x-1/2 w-[350px] h-[350px] bg-primary/5 dark:bg-primary/10 rounded-full blur-[100px] pointer-events-none z-[-1]"></div>
+  <div class="absolute bottom-0 left-1/4 -translate-x-1/2 w-87.5 h-87.5 bg-primary/5 dark:bg-primary/10 rounded-full blur-[100px] pointer-events-none z-[-1]"></div>
 
   <Container class="flex flex-col gap-12 lg:gap-16">
     <!-- Top section: Columns Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
       
       <!-- Brand column (Spans 2 columns on lg) -->
       <div class="flex flex-col gap-4 lg:col-span-2">
-        <a href="#" class="text-3xl text-primary font-black tracking-tight w-fit transition-transform hover:scale-105">
-          Marki
+        <a href="#" class="flex items-center gap-2.5 text-3xl text-primary font-black tracking-tight w-fit transition-transform hover:scale-105">
+          <img src="/marki-icons/marki-icon.svg" alt="Marki logo" class="w-8 h-8" />
+          <span>Marki</span>
         </a>
         <p class="text-ui-muted text-base font-semibold leading-relaxed max-w-sm">
-          Tu aliado inteligente en redes sociales. Dejá de adivinar qué publicar y empezá a crecer con estrategia.
+          Tu aliado en redes sociales. Dejá de adivinar qué publicar y empezá a crecer con estrategia.
         </p>
         
         <!-- Social links -->
@@ -59,7 +54,7 @@ const legalLinks = [
       </div>
 
       <!-- Links Column: Product -->
-      <div class="flex flex-col gap-5">
+      <div class="flex flex-col gap-5 w-full">
         <span class="text-ui-dark text-sm font-bold tracking-wider uppercase">Producto</span>
         <ul class="flex flex-col gap-3">
           {productLinks.map((link) => (
@@ -73,24 +68,10 @@ const legalLinks = [
       </div>
 
       <!-- Links Column: Support -->
-      <div class="flex flex-col gap-5">
+      <div class="flex flex-col gap-5 w-full">
         <span class="text-ui-dark text-sm font-bold tracking-wider uppercase">Soporte</span>
         <ul class="flex flex-col gap-3">
           {supportLinks.map((link) => (
-            <li>
-              <a href={link.href} class="text-ui-muted hover:text-primary font-semibold text-base transition-colors duration-200">
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Links Column: Legal -->
-      <div class="flex flex-col gap-5">
-        <span class="text-ui-dark text-sm font-bold tracking-wider uppercase">Legal</span>
-        <ul class="flex flex-col gap-3">
-          {legalLinks.map((link) => (
             <li>
               <a href={link.href} class="text-ui-muted hover:text-primary font-semibold text-base transition-colors duration-200">
                 {link.label}

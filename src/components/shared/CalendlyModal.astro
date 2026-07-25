@@ -1,0 +1,213 @@
+---
+interface Props {
+  calendlyUrl?: string;
+}
+
+const { calendlyUrl = import.meta.env.PUBLIC_CALENDLY_URL || "" } = Astro.props;
+---
+
+<!-- External Calendly Styles -->
+<link
+  href="https://assets.calendly.com/assets/external/widget.css"
+  rel="stylesheet"
+/>
+
+<!-- Fallback Demo Modal for Direct Information Capture -->
+<div
+  id="demo-modal-backdrop"
+  class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="demo-modal-title"
+>
+  <div
+    id="demo-modal-card"
+    class="bg-surface-elevated border border-border-default rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative transform scale-95 transition-all duration-300"
+  >
+    <!-- Close Button -->
+    <button
+      id="close-demo-modal"
+      type="button"
+      aria-label="Cerrar modal"
+      class="absolute top-5 right-5 h-9 w-9 flex items-center justify-center rounded-full border border-border-default bg-surface-subtle text-primary-700 hover:bg-surface-muted transition-colors cursor-pointer"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="flex flex-col gap-2 mb-6">
+      <span class="text-xs uppercase tracking-wider font-bold text-primary">Demo con Marki</span>
+      <h3 id="demo-modal-title" class="text-2xl sm:text-3xl font-bold text-primary-800 tracking-tight">
+        Agendá tu demo personalizada
+      </h3>
+      <p class="text-sm sm:text-base text-primary-600 font-medium">
+        Dejanos tus datos y nos ponemos en contacto para mostrarte cómo potenciar tu marca con Marki.
+      </p>
+    </div>
+
+    <form id="demo-booking-form" class="flex flex-col gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="flex flex-col gap-1.5">
+          <label for="demo-nombre" class="text-xs font-bold text-primary-800">Nombre *</label>
+          <input
+            type="text"
+            id="demo-nombre"
+            name="nombre"
+            required
+            placeholder="Ej. Juan"
+            class="px-4 py-2.5 rounded-xl border border-border-default bg-surface-background text-primary-800 focus:outline-none focus:border-primary text-sm font-medium"
+          />
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <label for="demo-apellido" class="text-xs font-bold text-primary-800">Apellido *</label>
+          <input
+            type="text"
+            id="demo-apellido"
+            name="apellido"
+            required
+            placeholder="Ej. Pérez"
+            class="px-4 py-2.5 rounded-xl border border-border-default bg-surface-background text-primary-800 focus:outline-none focus:border-primary text-sm font-medium"
+          />
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-1.5">
+        <label for="demo-email" class="text-xs font-bold text-primary-800">Correo electrónico *</label>
+        <input
+          type="email"
+          id="demo-email"
+          name="email"
+          required
+          placeholder="juan@minegocio.com"
+          class="px-4 py-2.5 rounded-xl border border-border-default bg-surface-background text-primary-800 focus:outline-none focus:border-primary text-sm font-medium"
+        />
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="flex flex-col gap-1.5">
+          <label for="demo-telefono" class="text-xs font-bold text-primary-800">Teléfono / WhatsApp *</label>
+          <input
+            type="tel"
+            id="demo-telefono"
+            name="telefono"
+            required
+            placeholder="+54 9 11 1234-5678"
+            class="px-4 py-2.5 rounded-xl border border-border-default bg-surface-background text-primary-800 focus:outline-none focus:border-primary text-sm font-medium"
+          />
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <label for="demo-negocio" class="text-xs font-bold text-primary-800">Nombre del negocio *</label>
+          <input
+            type="text"
+            id="demo-negocio"
+            name="negocio"
+            required
+            placeholder="Ej. Mi Tienda Online"
+            class="px-4 py-2.5 rounded-xl border border-border-default bg-surface-background text-primary-800 focus:outline-none focus:border-primary text-sm font-medium"
+          />
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="mt-2 w-full py-3.5 px-6 rounded-full bg-primary text-white font-bold text-base hover:bg-primary-400 active:bg-primary-500 transition-colors shadow-md cursor-pointer flex items-center justify-center gap-2"
+      >
+        <span>Confirmar solicitud de demo</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="m12 5 7 7-7 7"></path>
+        </svg>
+      </button>
+
+      <p id="demo-form-status" class="text-xs text-center text-primary-600 font-medium hidden">
+        ¡Gracias! Nos pondremos en contacto a la brevedad.
+      </p>
+    </form>
+  </div>
+</div>
+
+<!-- Calendly External Script -->
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<script is:inline data-calendly-url={calendlyUrl}>
+  function initDemoButtons() {
+    const currentScript = document.querySelector('script[data-calendly-url]');
+    const configuredUrl = currentScript ? currentScript.getAttribute('data-calendly-url') : '';
+    
+    const backdrop = document.getElementById("demo-modal-backdrop");
+    const modalCard = document.getElementById("demo-modal-card");
+    const closeBtn = document.getElementById("close-demo-modal");
+    const demoForm = document.getElementById("demo-booking-form");
+    const formStatus = document.getElementById("demo-form-status");
+
+    function openNativeModal() {
+      if (!backdrop || !modalCard) return;
+      backdrop.classList.remove("opacity-0", "pointer-events-none");
+      backdrop.classList.add("opacity-100", "pointer-events-auto");
+      modalCard.classList.remove("scale-95");
+      modalCard.classList.add("scale-100");
+    }
+
+    function closeNativeModal() {
+      if (!backdrop || !modalCard) return;
+      backdrop.classList.add("opacity-0", "pointer-events-none");
+      backdrop.classList.remove("opacity-100", "pointer-events-auto");
+      modalCard.classList.add("scale-95");
+      modalCard.classList.remove("scale-100");
+    }
+
+    function handleDemoClick(e) {
+      e.preventDefault();
+      
+      // If a Calendly URL is specified and Calendly widget is ready, open Calendly popup!
+      if (configuredUrl && window.Calendly) {
+        window.Calendly.initPopupWidget({ url: configuredUrl });
+        return;
+      }
+
+      // Otherwise, open our native custom Demo Modal
+      openNativeModal();
+    }
+
+    // Attach click listener to all buttons with data-open-demo or matching demo text
+    const demoTriggers = document.querySelectorAll('[data-open-demo]');
+    demoTriggers.forEach((el) => {
+      el.removeEventListener('click', handleDemoClick);
+      el.addEventListener('click', handleDemoClick);
+    });
+
+    // Close listeners
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeNativeModal);
+    }
+    if (backdrop) {
+      backdrop.addEventListener('click', (e) => {
+        if (e.target === backdrop) closeNativeModal();
+      });
+    }
+
+    if (demoForm) {
+      demoForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (formStatus) {
+          formStatus.classList.remove('hidden');
+          formStatus.textContent = '¡Gracias! Nos pondremos en contacto a la brevedad.';
+          setTimeout(() => {
+            closeNativeModal();
+            demoForm.reset();
+            formStatus.classList.add('hidden');
+          }, 2000);
+        }
+      });
+    }
+  }
+
+  document.addEventListener('astro:page-load', initDemoButtons);
+  if (document.readyState !== 'loading') {
+    initDemoButtons();
+  } else {
+    document.addEventListener('DOMContentLoaded', initDemoButtons);
+  }
+</script>

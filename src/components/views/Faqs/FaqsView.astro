@@ -2,6 +2,7 @@
 import Subheading from "../../shared/Subheading.astro";
 import FaqAccordion from "./FaqAccordion.astro";
 import Container from "../../shared/Container.astro";
+import Button from "../../shared/Button.astro";
 
 const faqs = [
   {
@@ -43,6 +44,31 @@ const faqs = [
       {faqs.map((faq) => (
         <FaqAccordion title={faq.title} description={faq.description} />
       ))}
+    </div>
+
+    <!-- Support / Help Banner with Marki Icon -->
+    <div
+      class="mt-4 max-w-4xl mx-auto w-full bg-surface-white border border-border-default rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+    >
+      <div class="flex items-center gap-4 text-center sm:text-left">
+        <div class="p-3 bg-surface-primary-light border border-border-primary rounded-2xl shrink-0">
+          <img
+            src="/marki-icons/marki-icon.svg"
+            alt="Marki ayuda"
+            class="w-12 h-12"
+          />
+        </div>
+        <div class="flex flex-col gap-1 w-3/4">
+          <h3 class="text-xl font-bold text-primary-800 tracking-tight">
+            ¿Tenés alguna pregunta específica?
+          </h3>
+          <p class="text-md font-medium text-primary-600">
+            Agendá una demo personalizada y te mostramos cómo potenciar tu negocio.
+          </p>
+        </div>
+      </div>
+      <Button variant="primary" type="rounded" class="shrink-0" data-open-demo> Agendar demo </Button>
+
     </div>
   </Container>
 </section>

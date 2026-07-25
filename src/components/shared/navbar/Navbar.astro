@@ -14,10 +14,6 @@ const navLinksLabels = [
       redirect: "#precios"
   },
   {
-      label: "Quienes somos",
-      redirect: "#quienes-somos"
-  },
-  {
       label: "Preguntas frecuentes",
       redirect: "#preguntas-frecuentes"
   },
@@ -28,6 +24,7 @@ const navLinksLabels = [
   <!-- ── DESKTOP NAVBAR (hidden md:flex) ── -->
   <div class="hidden md:flex justify-center w-full px-4 py-5">
     <nav class="bg-surface-elevated/75 backdrop-blur-md border border-border-default rounded-full px-6 py-2.5 shadow-lg flex items-center gap-6 w-fit transition-all duration-300 hover:border-border-muted/80">
+      <img src="/marki-icons/marki-mobile.svg" alt="Marki logo" class="w-8 h-8" />
       <a href="#" class="text-2xl text-primary font-black tracking-tight transition-transform hover:scale-105 active:scale-95">Marki</a>
       
       <div class="flex gap-2">
@@ -36,7 +33,7 @@ const navLinksLabels = [
 
       <div class="flex gap-3 items-center">
         <ThemeSelector />
-        <Button variant="primary" type="rounded"> Agendar demo </Button>
+        <Button variant="primary" type="rounded" data-open-demo> Agendar demo </Button>
       </div>
     </nav>
   </div>
@@ -67,9 +64,10 @@ const navLinksLabels = [
     <!-- Floating Logo card -->
     <a
       href="#"
-      class="flex items-center justify-center h-12 px-6 rounded-2xl border border-border-default bg-surface-elevated/85 backdrop-blur-md shadow-sm font-black text-xl text-primary tracking-tight active:scale-95 transition-all duration-200 cursor-pointer"
+      class="flex items-center justify-center h-12 px-5 rounded-2xl border border-border-default bg-surface-elevated/85 backdrop-blur-md shadow-sm font-black text-xl text-primary tracking-tight active:scale-95 transition-all duration-200 cursor-pointer gap-2"
     >
-      Marki
+      <img src="/marki-icons/marki-icon.svg" alt="Marki logo" class="w-6 h-6" />
+      <span>Marki</span>
     </a>
 
     <!-- Theme widget card -->
@@ -101,7 +99,7 @@ const navLinksLabels = [
       </ul>
       <div class="h-[1px] bg-border-default/60 my-2"></div>
       <div class="p-1">
-        <Button variant="primary" type="rounded" class="w-full justify-center py-3.5 shadow-md">
+        <Button variant="primary" type="rounded" data-open-demo class="w-full justify-center py-3.5 shadow-md">
           Agendar una demo
         </Button>
       </div>
