@@ -20,9 +20,9 @@ import markiSuggestRaw from "../../../../public/marki-suggest.svg?raw";
       </Badge>
 
       <h1
-        class="xl:text-8xl lg:text-6xl md:text-5xl sm:text-3xl text-4xl font-bold text-primary-800 tracking-[-3px] leading-[1.05]"
+        class="xl:text-7xl md:text-6xl sm:w-full sm:text-6xl text-5xl font-bold text-primary-800 tracking-[-3px] leading-[1.05]"
       >
-        Dejá de pensar <br /> qué postear y <br />
+        Dejá de pensar  qué postear y 
         <span class="text-primary"
           >empezá a <span class="underline decoration-wavy">crecer</span></span
         >
@@ -31,13 +31,14 @@ import markiSuggestRaw from "../../../../public/marki-suggest.svg?raw";
         class="justify-center text-primary-700 lg:text-2xl md:text-xl text-lg w-full lg:w-[85%] font-medium leading-relaxed tracking-tight"
       >
         Marki te arma el calendario del mes: qué subir, cuando y por qué. Vos solo
-        aprobás y publicás. Sin marketing-speak, sin perder horas frente a la
-        pantalla.
+        aprobás y publicás.<b class="font-bold"> Sin discursos complejos, sin perder horas frente a la
+        pantalla</b> .
       </p>
       <div class="flex flex-wrap gap-4 w-full">
         <Button
           type="rounded"
           variant="primary"
+          data-open-demo
           class="shadow-lg hover:scale-105 transition-transform w-full sm:w-fit"
         >
           Agendar una demo
@@ -53,10 +54,10 @@ import markiSuggestRaw from "../../../../public/marki-suggest.svg?raw";
     </div>
 
     <div
-      class="flex w-full max-w-70 sm:max-w-sm lg:max-w-none lg:w-[40%] flex-col scroll-reveal delay-300 relative mt-8 lg:mt-0"
+      class="flex w-full max-w-70 sm:max-w-lg lg:max-w-none lg:w-[40%] flex-col scroll-reveal delay-300 relative mt-8 lg:mt-0"
     >
       <div
-        class="w-[85%] self-start h-auto animate-float transition-transform hover:scale-[1.02] hover:animate-none duration-500 [&>svg]:w-full [&>svg]:h-auto"
+        class="w-full self-start h-auto animate-float transition-transform hover:scale-[1.02] hover:animate-none duration-500 [&>svg]:w-full [&>svg]:h-auto"
         role="img"
         aria-label="Generación de contenido de Marki"
         set:html={ilustrationHeroRaw}

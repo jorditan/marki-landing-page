@@ -56,11 +56,11 @@ const benefits = [
             ¿Te sentís identificado?
           </p>
 
-          <ul class="flex flex-col gap-4">
+          <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
             {
               negatives.map((negative) => (
-                <li class="text-primary-600 font-medium flex items-center gap-3">
-                    <X class="h-4 w-4 text-red-800" />
+                <li class="text-primary-600 font-medium flex items-start gap-3">
+                  <X class="h-4 w-4 text-red-800 shrink-0 mt-1" />
                   <span>{negative}</span>
                 </li>
               ))
@@ -75,11 +75,11 @@ const benefits = [
             Lo que pasa con nosotros
           </p>
 
-          <ul class="flex flex-col gap-4">
+          <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
             {
               benefits.map((benefit) => (
-                <li class="text-primary-600 font-medium flex items-center gap-3">
-                    <CheckCheckIcon class="h-4 w-4 text-green-700" />
+                <li class="text-primary-600 font-medium flex items-start gap-3">
+                  <CheckCheckIcon class="h-4 w-4 text-green-700 shrink-0 mt-1" />
                   <span>{benefit}</span>
                 </li>
               ))

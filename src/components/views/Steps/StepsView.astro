@@ -1,5 +1,13 @@
 ---
-import { ArrowDown, Brain, Calendar, Folder, Sparkles, Store, Zap } from "@lucide/astro";
+import {
+  ArrowDown,
+  Brain,
+  Calendar,
+  Folder,
+  Sparkles,
+  Store,
+  Zap,
+} from "@lucide/astro";
 import Subheading from "../../shared/Subheading.astro";
 import StepCard from "./StepCard.astro";
 import GenerationView from "./Generation/GenerationView.astro";
@@ -37,44 +45,76 @@ const iconMap: Record<string, any> = {
 };
 ---
 
-<section class="w-full py-20 lg:py-32 bg-surface-background md:min-h-screen md:flex md:flex-col md:justify-center relative overflow-hidden z-0" id="como-funciona">
-  <div class="absolute left-15 top-[12%] pointer-events-none opacity-30 dark:opacity-15 blur-[0.5px] -rotate-12 select-none z-[-1] transition-all duration-300 dark:invert dark:hue-rotate-180 bg-surface-muted rounded-xl p-2 border-2 border-border-default text-primary-600">
-    <Folder stroke="currentColor" fill="currentColor"/>
+<section
+  class="w-full py-20 lg:py-32 bg-surface-background md:min-h-screen md:flex md:flex-col md:justify-center relative overflow-hidden z-0"
+  id="como-funciona"
+>
+  <div
+    class="absolute left-15 top-[12%] pointer-events-none opacity-30 dark:opacity-15 blur-[0.5px] -rotate-12 select-none z-[-1] transition-all duration-300 dark:invert dark:hue-rotate-180 bg-surface-muted rounded-xl p-2 border-2 border-border-default text-primary-600"
+  >
+    <Folder stroke="currentColor" fill="currentColor" />
   </div>
-  <div class="absolute right-20 top-[40%] pointer-events-none opacity-30 dark:opacity-15 blur-[0.5px] rotate-12 select-none z-[-1] transition-all duration-300 dark:invert dark:hue-rotate-180 bg-surface-muted rounded-xl p-2 border-2 border-border-default text-primary-600">
+  <div
+    class="absolute right-20 top-[40%] pointer-events-none opacity-30 dark:opacity-15 blur-[0.5px] rotate-12 select-none z-[-1] transition-all duration-300 dark:invert dark:hue-rotate-180 bg-surface-muted rounded-xl p-2 border-2 border-border-default text-primary-600"
+  >
     <Calendar stroke="currentColor" />
   </div>
-   <div class="absolute right-20 top-[90%] pointer-events-none opacity-30 dark:opacity-15 blur-[0.5px] rotate-12 select-none z-[-1] transition-all duration-300 dark:invert dark:hue-rotate-180 bg-surface-muted rounded-xl p-2 border-2 border-border-default text-primary-600">
+  <div
+    class="absolute right-20 top-[90%] pointer-events-none opacity-30 dark:opacity-15 blur-[0.5px] rotate-12 select-none z-[-1] transition-all duration-300 dark:invert dark:hue-rotate-180 bg-surface-muted rounded-xl p-2 border-2 border-border-default text-primary-600"
+  >
     <Brain stroke="currentColor" />
   </div>
-  <div class="absolute left-12 top-[68%] pointer-events-none opacity-30 dark:opacity-15 blur-[0.5px] -rotate-6 select-none z-[-1] transition-all duration-300 dark:invert dark:hue-rotate-180 bg-surface-muted rounded-xl p-2 border-2 border-border-default text-primary-600">
-    <Zap stroke="currentColor" fill="currentColor"/>
+  <div
+    class="absolute left-12 top-[68%] pointer-events-none opacity-30 dark:opacity-15 blur-[0.5px] -rotate-6 select-none z-[-1] transition-all duration-300 dark:invert dark:hue-rotate-180 bg-surface-muted rounded-xl p-2 border-2 border-border-default text-primary-600"
+  >
+    <Zap stroke="currentColor" fill="currentColor" />
   </div>
-  <Container class="flex flex-col gap-12 scroll-reveal">
-    <div class="flex flex-col gap-8 items-center">
-      <div class="flex flex-col gap-4 items-center">
-          <div class="flex justify-center w-full">
-            <Subheading text="Cómo funciona" />
-          </div>
-      
-          <h2
-            class="font-bold text-primary-800 tracking-[-2px] lg:text-5xl text-3xl self-stretch text-center leading-[1.1]"
-          >
-            Tres pasos. <br />
-            <span class="text-primary-600 decoration-primary-600 underline decoration-4 decoration-wavy">Sin curva de aprendizaje</span>
-          </h2>
 
+  <Container class="flex flex-col gap-12 scroll-reveal">
+    <div class="flex flex-col gap-8 items-center relative">
+      <div
+        class="hidden lg:block absolute right-0 lg:right-6 top-0 w-36 lg:w-48 pointer-events-none select-none z-10 animate-float transition-all duration-300"
+      >
+        <img
+          src="/marki-icons/marki-pc.svg"
+          alt="Marki trabajando en la computadora"
+          class="w-full h-auto drop-shadow-lg"
+        />
       </div>
 
+      <div class="flex flex-col gap-4 items-center">
+        <div class="flex justify-center w-full">
+          <Subheading text="Cómo funciona" />
+        </div>
 
-      <p class="text-primary-800 text-lg font-medium text-center max-w-xl mx-auto">
+        <h2
+          class="font-bold text-primary-800 tracking-[-2px] lg:text-5xl text-3xl self-stretch text-center leading-[1.1]"
+        >
+          Tres pasos. <br />
+          <span
+            class="text-primary-600 decoration-primary-600 underline decoration-4 decoration-wavy"
+            >Sin curva de aprendizaje</span
+          >
+        </h2>
+      </div>
+
+      <p
+        class="text-primary-800 text-lg font-medium text-center max-w-xl mx-auto"
+      >
         <span class="text-primary-600 font-bold"
           >No hace falta saber de marketing</span
         >. Si sabés mandar un mensaje, ya podés usar a Marki.
       </p>
     </div>
 
-    <article class="flex w-full justify-center items-center py-8">
+    <article class="flex w-full justify-center items-center gap-8 flex-col">
+      <!-- <video
+        controls
+        class="w-full lg:w-2/4 bg-surface-muted p-4 rounded-3xl shadow-lg border border-border-default h-auto"
+        muted
+      >
+        <source src="/videos/marki-steps.mp4" type="video/mp4" />
+      </video> -->
       <div
         class="flex flex-col w-full lg:w-2/4 gap-6 justify-center items-center"
       >
@@ -83,31 +123,30 @@ const iconMap: Record<string, any> = {
             const Icon = iconMap[step.icon];
             return (
               <>
-            
-              <div
-                class="w-full scroll-reveal"
-                style={`transition-delay: ${index * 150}ms`}
-              >
-                <StepCard
-                  title={step.title}
-                  description={step.description}
-                  number={step.number}
+                <div
+                  class="w-full scroll-reveal"
+                  style={`transition-delay: ${index * 150}ms`}
                 >
+                  <StepCard
+                    title={step.title}
+                    description={step.description}
+                    number={step.number}
+                  >
                     {Icon && (
                       <Fragment slot="icon">
                         <Icon class="text-primary h-6 w-6" />
                       </Fragment>
                     )}
                   </StepCard>
-              </div>
-              {index < steps.length - 1 && (
-                <div
-                  class="scroll-reveal delay-150"
-                  style={`transition-delay: ${index * 150 + 75}ms`}
-                >
-                  <ArrowDown class="text-primary h-8 w-8" />
                 </div>
-              )}
+                {index < steps.length - 1 && (
+                  <div
+                    class="scroll-reveal delay-150"
+                    style={`transition-delay: ${index * 150 + 75}ms`}
+                  >
+                    <ArrowDown class="text-primary h-8 w-8" />
+                  </div>
+                )}
               </>
             );
           })
