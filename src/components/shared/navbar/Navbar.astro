@@ -3,6 +3,7 @@ import Button from "../Button.astro";
 import NavLink from "./NavLink.astro";
 import ThemeSelector from "./ThemeSelector.astro";
 import Container from "../Container.astro";
+import { LogIn } from "@lucide/astro";
 
 const navLinksLabels = [
   {
@@ -33,7 +34,16 @@ const navLinksLabels = [
 
       <div class="flex gap-3 items-center">
         <ThemeSelector />
-        <Button variant="primary" type="rounded" data-open-demo> Agendar demo </Button>
+        <Button
+          variant="primary"
+          type="rounded"
+          href="https://hackathon-2026-woad.vercel.app/login"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <LogIn class="w-4 h-4" />
+          Iniciar sesión
+        </Button>
       </div>
     </nav>
   </div>
@@ -99,8 +109,16 @@ const navLinksLabels = [
       </ul>
       <div class="h-[1px] bg-border-default/60 my-2"></div>
       <div class="p-1">
-        <Button variant="primary" type="rounded" data-open-demo class="w-full justify-center py-3.5 shadow-md">
-          Agendar una demo
+        <Button
+          variant="primary"
+          type="rounded"
+          href="https://hackathon-2026-woad.vercel.app/login"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full justify-center py-3.5 shadow-md"
+        >
+          <LogIn class="w-4 h-4" />
+          Iniciar sesión
         </Button>
       </div>
     </nav>
